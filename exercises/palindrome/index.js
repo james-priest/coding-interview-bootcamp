@@ -7,6 +7,23 @@
 //   palindrome("abba") === true
 //   palindrome("abcdefg") === false
 
-function palindrome(str) {}
+// Solution #1 - chained
+// function palindrome(str) {
+//   const reversed = str
+//     .split('')
+//     .reverse()
+//     .join('');
+
+//   return str === reversed;
+// }
+
+// Solution #2
+// Is 'every' is used to do a boolean check on every element within an array.
+// not ideal bcz it compares every char rather than stop halfway
+function palindrome(str) {
+  return str.split('').every((char, i) => {
+    return char === str[str.length - i - 1];
+  });
+}
 
 module.exports = palindrome;
