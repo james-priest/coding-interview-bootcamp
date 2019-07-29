@@ -136,6 +136,15 @@ describe('RemoveLast', () => {
 });
 
 describe('InsertLast', () => {
+  test('adds to the end of an empty list', () => {
+    const l = new List();
+    l.insertLast('a');
+    // l.insertFirst('a');
+
+    expect(l.size()).toEqual(1);
+    expect(l.getLast().data).toEqual('a');
+  });
+
   test('adds to the end of the list', () => {
     const l = new List();
     l.insertFirst('a');
@@ -147,7 +156,7 @@ describe('InsertLast', () => {
   });
 });
 
-describe.skip('GetAt', () => {
+describe('GetAt', () => {
   test('returns the node at given index', () => {
     const l = new List();
     expect(l.getAt(10)).toEqual(null);
@@ -164,8 +173,8 @@ describe.skip('GetAt', () => {
   });
 });
 
-describe.skip('RemoveAt', () => {
-  test('removeAt doesnt crash on an empty list', () => {
+describe('RemoveAt', () => {
+  test('removeAt does not crash on an empty list', () => {
     const l = new List();
     expect(() => {
       l.removeAt(0);
@@ -174,10 +183,9 @@ describe.skip('RemoveAt', () => {
     }).not.toThrow();
   });
 
-  test('removeAt doesnt crash on an index out of bounds', () => {
+  test('removeAt does not crash on an index out of bounds', () => {
     const l = new List();
     expect(() => {
-      const l = new List();
       l.insertFirst('a');
       l.removeAt(1);
     }).not.toThrow();
@@ -217,7 +225,7 @@ describe.skip('RemoveAt', () => {
   });
 });
 
-describe.skip('InsertAt', () => {
+describe('InsertAt', () => {
   test('inserts a new node with data at the 0 index when the list is empty', () => {
     const l = new List();
     l.insertAt('hi', 0);
@@ -272,7 +280,7 @@ describe.skip('InsertAt', () => {
   });
 });
 
-describe.skip('ForEach', () => {
+describe('ForEach', () => {
   test('applies a transform to each node', () => {
     const l = new List();
 
@@ -292,7 +300,7 @@ describe.skip('ForEach', () => {
   });
 });
 
-describe.skip('for...of loops', () => {
+describe('for...of loops', () => {
   test('works with the linked list', () => {
     const l = new List();
 
@@ -315,6 +323,7 @@ describe.skip('for...of loops', () => {
     const l = new List();
     expect(() => {
       for (const node of l) {
+        node;
       }
     }).not.toThrow();
   });
