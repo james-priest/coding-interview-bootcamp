@@ -166,17 +166,7 @@ class LinkedList {
   }
 }
 
-function fromLast(list, n) {
-  let slow = list.getFirst();
-  let fast = list.getAt(n);
-
-  while (fast.next) {
-    slow = slow.next;
-    fast = fast.next;
-  }
-
-  return slow;
-}
+function fromLast(list, n) {}
 
 const list = new LinkedList();
 list.insertLast('a');
